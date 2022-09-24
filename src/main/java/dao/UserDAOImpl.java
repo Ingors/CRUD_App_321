@@ -15,26 +15,31 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAllUsers() {
+
         return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
     public User getUser(int id) {
+
         return entityManager.find(User.class, id);
     }
 
     @Override
     public void createUser(User user) {
+
         entityManager.persist(user);
     }
 
     @Override
     public void updateUser(User user) {
+
         entityManager.merge(user);
     }
 
     @Override
     public void deleteUser(int id) {
+
         entityManager.remove(entityManager.find(User.class, id));
     }
 }
